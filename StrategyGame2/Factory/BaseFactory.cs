@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TugOfWar
+namespace StrategyGame2
 {
     class BaseFactory : Factory
     {
@@ -29,6 +29,7 @@ namespace TugOfWar
             Player player = (Player)playerObject;
 
             sr.Color = player.Color;
+            baseBuilding.Owner = player;
 
             gameObject.AddComponent(player);
             gameObject.AddComponent(sr);

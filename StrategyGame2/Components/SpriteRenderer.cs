@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TugOfWar
+namespace StrategyGame2
 {
     class SpriteRenderer : Component
     {
@@ -34,7 +34,6 @@ namespace TugOfWar
         {
             Sprite = GameWorld.Instance.Content.Load<Texture2D>(spriteName);
             Origin = new Vector2(Sprite.Width / 2, Sprite.Height / 2);
-
         }
 
         public override void Draw(SpriteBatch spriteBatch)

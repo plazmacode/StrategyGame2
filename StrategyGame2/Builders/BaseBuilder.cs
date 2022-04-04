@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace TugOfWar
+namespace StrategyGame2
 {
     /// <summary>
     /// OBSOLETE
@@ -22,15 +22,16 @@ namespace TugOfWar
 
         private void BuildComponents()
         {
-            BaseBuilding baseBuilding = (BaseBuilding)gameObject.AddComponent(new BaseBuilding());
             string randomPlayerKey = PlayerManager.Instance.PlayerKeys[GameWorld._Random.Next(0, PlayerManager.Instance.PlayerKeys.Count)];
+            Owner = PlayerManager.Instance.Players[randomPlayerKey];
 
-            Player player = PlayerManager.Instance.Players[randomPlayerKey];
+            BaseBuilding baseBuilding = (BaseBuilding)gameObject.AddComponent(new BaseBuilding());
+            baseBuilding.Owner = Owner;
 
             SpriteRenderer sr = new SpriteRenderer();
-            sr.Color = player.Color;
+            sr.Color = Owner.Color;
 
-            gameObject.AddComponent(player);
+            gameObject.AddComponent(Owner);
             gameObject.AddComponent(sr);
             Collider c = (Collider)gameObject.AddComponent(new Collider());
             c.CollisionEvent.Attach(baseBuilding);

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
-namespace TugOfWar
+namespace StrategyGame2
 {
     class TerrainTile : Component
     {

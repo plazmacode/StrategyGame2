@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TugOfWar
+namespace StrategyGame2
 {
     public static class Program
     {

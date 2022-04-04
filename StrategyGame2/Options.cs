@@ -4,7 +4,7 @@ using System.Diagnostics;
 using System.Reflection;
 using System.Text;
 
-namespace TugOfWar
+namespace StrategyGame2
 {
     public class Options
     {

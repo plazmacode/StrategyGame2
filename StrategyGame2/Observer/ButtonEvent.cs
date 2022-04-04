@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TugOfWar
+namespace StrategyGame2
 {
     public enum BUTTONSTATE { UP, DOWN }
     class ButtonEvent : GameEvent

@@ -5,7 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace TugOfWar
+namespace StrategyGame2
 {
     public class GameWorld : Game
     {
@@ -151,31 +151,33 @@ namespace TugOfWar
 
         protected override void Draw(GameTime gameTime)
         {
-            if (Camera.CameraChanged)
-            {
-                _spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, Camera.GetTransformation(_graphics.GraphicsDevice));
-                World.Instance.DrawSceneToTexture(World.Instance.RenderTarget);
-                _spriteBatch.End();
-            }
+            //if (Camera.CameraChanged)
+            //{
+            //    _spriteBatch.Begin(SpriteSortMode.Immediate, null, null, null, null, null, Camera.GetTransformation(_graphics.GraphicsDevice));
+            //    World.Instance.DrawSceneToTexture(World.Instance.RenderTarget);
+            //    _spriteBatch.End();
+            //}
             GraphicsDevice.Clear(Color.DarkSlateBlue);
 
-            //Update position of camera rectangle
+            ////Update position of camera rectangle
             Instance.Camera.UpdateRenderRect();
 
             //Draw Terrain
-            _spriteBatch.Begin(SpriteSortMode.FrontToBack, null, null, null, null, null, Camera.GetTransformation(_graphics.GraphicsDevice));
-            _spriteBatch.Draw(World.Instance.RenderTarget, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
-            _spriteBatch.End();
+            //_spriteBatch.Begin(SpriteSortMode.FrontToBack, null, null, null, null, null, Camera.GetTransformation(_graphics.GraphicsDevice));
+            //_spriteBatch.Draw(World.Instance.RenderTarget, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
+            //_spriteBatch.End();
 
             //Draw gameObjects using Camera class 
-            _spriteBatch.Begin(SpriteSortMode.FrontToBack, null, null, null, null, null, null);
+            _spriteBatch.Begin(SpriteSortMode.FrontToBack, null, null, null, null, null, Camera.GetTransformation(_graphics.GraphicsDevice));
 
             for (int i = 0; i < GameObjects.Count; i++)
             {
-                if (!GameObjects[i].HasComponent<Cell>())
-                {
-                    GameObjects[i].Draw(_spriteBatch);
-                }
+                //if (!GameObjects[i].HasComponent<Cell>())
+                //{
+                //    GameObjects[i].Draw(_spriteBatch);
+                //}
+                GameObjects[i].Draw(_spriteBatch);
+
             }
             //_spriteBatch.Draw(Pixel, Instance.Camera.RenderRect, null, new Color(new Color(25, 25, 25), 0.1f), 0, default, SpriteEffects.None, 0.1f);
 

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
-namespace TugOfWar
+namespace StrategyGame2
 {
     class Player : Component
     {
@@ -35,7 +35,8 @@ namespace TugOfWar
 
         public void TickPlayer()
         {
-            GameObject.Transform.Position = new Vector2(GameObject.Transform.Position.X + 5, GameObject.Transform.Position.Y);
+            BaseBuilding b = GameObject.GetComponent<BaseBuilding>() as BaseBuilding;
+            b.SpawnWorkers();
         }
     }
 }

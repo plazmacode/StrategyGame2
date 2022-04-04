@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace TugOfWar
+namespace StrategyGame2
 {
     public class Camera2D
     {

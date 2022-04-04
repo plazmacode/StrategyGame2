@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
-namespace TugOfWar
+namespace StrategyGame2
 {
     /// <summary>
     /// An option command allows the game to changea value of a specific type using keyInput.

@@ -1,13 +1,16 @@
 ﻿using Microsoft.Xna.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 
-namespace TugOfWar
+namespace StrategyGame2
 {
     class BaseBuilding : Component, IGameListener
     {
         private SpriteRenderer spriteRenderer;
+
+        public Player Owner { get; set; }
 
         public void Notify(GameEvent gameEvent)
         {
@@ -28,7 +31,19 @@ namespace TugOfWar
 
             GameObject.Transform.Position = World.Instance.Grid.Cells[new Vector2(x, y)].GameObject.Transform.Position + spawnOffset;
         }
+        public void SpawnWorkers()
+        {
+            GameObject gameObject = WorkerPool.Instance.GetObject();
+            Worker w = gameObject.GetComponent<Worker>() as Worker;
+            SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>() as SpriteRenderer;
 
+            w.Owner = Owner;
+            sr.Color = Owner.Color;
+
+            gameObject.Transform.Position = GameObject.Transform.Position;
+
+            GameWorld.Instance.Instantiate(gameObject);
+        }
 
     }
 }
